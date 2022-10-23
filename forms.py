@@ -43,10 +43,10 @@ depositor.
 
 class Teller(Form):
     depositor_name = StringField('depositor_name', validators=[DataRequired()])
-    depositor_phone = StringField(
+    depositor_phone = IntegerField(
         'depositor_phone', validators=[DataRequired()])
-    school_id = StringField('school_id', validators=[DataRequired()])
-    student_id = StringField('student_id', validators=[DataRequired()])
+    school_id = IntegerField('school_id', validators=[DataRequired()])
+    pupil_id = IntegerField('pupil_id', validators=[DataRequired()])
     amount = IntegerField('amount', validators=[DataRequired()])
     purpose = SelectField('purpose', validators=[DataRequired(), length(min=1, max=1, message="Sorry, you can't select more than one.")], choices=[
         ('Tution Fee', 'Tution Fee'),
