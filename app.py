@@ -6,7 +6,7 @@ from models import *
 import os
 
 
-app = Flask(__name__, template_folder='../templates')
+app = Flask(__name__)
 
 # db = SQLAlchemy()  # To be removed
 # db.init_app(app)
