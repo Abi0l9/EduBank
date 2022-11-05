@@ -15,7 +15,7 @@ section {
   margin: 50px 0;
 }
 
-section>h2 {
+section > h2 {
   margin-bottom: 20px;
 }
 
@@ -24,7 +24,9 @@ a {
   color: #ff8c3a;
 }
 
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
   background: initial;
   color: initial;
 }
@@ -35,17 +37,17 @@ p.lead {
 
 ::selection {
   background: #555;
-  color: #FFF;
+  color: #fff;
 }
 
 ::-moz-selection {
   background: #555;
-  color: #FFF;
+  color: #fff;
 }
 
 ::-webkit-selection {
   background: #555;
-  color: #FFF;
+  color: #fff;
 }
 
 /* Main elements end */
@@ -74,7 +76,8 @@ p.lead {
   margin-right: 15px;
 }
 
-.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.active>a {
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .active > a {
   background: none;
   box-shadow: none;
   color: black;
@@ -113,23 +116,23 @@ ul.items {
   margin: 0;
 }
 
-ul.items>li>a {
+ul.items > li > a {
   margin-bottom: 15px;
   display: flex;
   color: initial;
   text-decoration: initial;
 }
 
-ul.items>li>a>i {
+ul.items > li > a > i {
   padding: 7px 10px 0;
 }
 
-ul.items>li:hover {
+ul.items > li:hover {
   color: orange;
   cursor: pointer;
 }
 
-ul.items>li:hover h5 {
+ul.items > li:hover h5 {
   color: orange;
 }
 
@@ -152,7 +155,7 @@ p {
   margin: 5px 0;
 }
 
-p>i {
+p > i {
   width: 30px;
   text-align: center;
 }
@@ -170,7 +173,7 @@ p>i {
   background: #ffffc6;
 }
 
-.seeking>button {
+.seeking > button {
   margin-left: 15px;
 }
 
@@ -245,6 +248,6 @@ h2.monospace {
   opacity: 0.5;
 }
 
-.actions>* {
-  margin: 20px 0;
+.actions > * {
+  margin: 0 0;
 }

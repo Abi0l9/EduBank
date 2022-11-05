@@ -1,3 +1,7 @@
+* {
+  margin: 0;
+}
+
 #hero {
   height: 50rem;
   background-image: url("/img/img2.jpg");
@@ -5,29 +9,6 @@
   background-size: cover;
   max-width: 100%;
   background-color: rgba(0, 0, 0, 0.7);
-}
-
-.top {
-  top: 30%;
-}
-
-.flow {
-  /* word-break: break-all; */
-  word-wrap: break-word;
-}
-
-.bg-overlay {
-  background: linear-gradient(
-    rgba(0, 0, 0, 0.7),
-    rgba(0, 0, 0, 0.7),
-    url("/img/img2.jpg")
-  );
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  color: #fff;
-  height: 450px;
-  padding-top: 50px;
 }
 
 #bg {
@@ -39,14 +20,6 @@
 .color-overlay {
   min-height: 90vh;
   background-color: rgba(0, 0, 0, 0.7);
-}
-
-.view-50 {
-  min-height: 50vh;
-}
-
-.view-80 {
-  min-height: 80vh;
 }
 
 .card-width {
@@ -63,4 +36,13 @@ section {
 .gt {
   width: 30px;
   height: 30px;
+}
+
+/* Register page */
+#register {
+  min-height: 100vh;
+}
+
+label {
+  font-size: 0.8rem;
 }
