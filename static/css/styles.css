@@ -40,7 +40,7 @@ section {
 
 /* Register page */
 #register {
-  min-height: 100vh;
+  min-height: 70vh;
 }
 
 label {

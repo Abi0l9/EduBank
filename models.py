@@ -36,12 +36,12 @@ class School(db.Model):
     date = db.Column(db.String(50), default=datetime.now())
     agreement = db.Column(db.Boolean, default=False)
 
-    # pupil = db.relationship('pupil', backref='school',
-    #                         cascade='all, delete-orphan', lazy='joined')
-    # teller = db.relationship('teller', backref='school',
-    #                          cascade='all, delete-orphan', lazy='joined')
-    # account = db.relationship('account', backref='school',
-    #                           cascade='all, delete-orphan', lazy='joined')
+    pupil = db.relationship('pupil', backref='school',
+                            cascade='all, delete-orphan', lazy='joined')
+    teller = db.relationship('teller', backref='school',
+                             cascade='all, delete-orphan', lazy='joined')
+    account = db.relationship('account', backref='school',
+                              cascade='all, delete-orphan', lazy='joined')
 
     def __repr__(self):
         return f'{self.id}: {self.name}'
@@ -54,10 +54,10 @@ class Account(db.Model):
     description = db.Column(db.String(120))
     amount = db.Column(db.Integer)
 
-    # school_id = db.Column(db.Integer, db.ForeignKey(
-    #     'school.id'), nullable='False')
-    # pupil_id = db.Column(db.Integer, db.ForeignKey(
-    #     'pupil.id'), nullable='False')
+    school_id = db.Column(db.Integer, db.ForeignKey(
+        'school.id'), nullable='False')
+    pupil_id = db.Column(db.Integer, db.ForeignKey(
+        'pupil.id'), nullable='False')
 
 
 class Pupil(db.Model):
@@ -65,19 +65,22 @@ class Pupil(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120))
+    parent_name = db.Column(db.String(120))
     level = db.Column(db.Integer)
     name_of_parent = db.Column(db.String(120))
     state = db.Column(db.String(120))
-    city = db.Column(db.String(120))
-    date_of_birth = db.Column(db.DateTime)
-    agreement = db.Column(db.Boolean, default=False)
+    address = db.Column(db.String(120))
+    city = db.Column(db.String(120))  # add address, parent_name
+    dob = db.Column(db.DateTime)
+    agreement = db.Column(db.Boolean, default=False, nullable=False)
+    reg_date = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
 
-    # school_id = db.Column(db.Integer, db.ForeignKey(
-    #     'school.id'), nullable='False')
-    # teller = db.relationship('teller', backref='pupil',
-    #                          cascade='all, delete-orphan', lazy='joined')
-    # account = db.relationship('account', backref='school',
-    #                           cascade='all, delete-orphan', lazy='joined')
+    school_id = db.Column(db.Integer, db.ForeignKey(
+        'school.id'), nullable='False')
+    teller = db.relationship('teller', backref='pupil',
+                             cascade='all, delete-orphan', lazy='joined')
+    account = db.relationship('account', backref='school',
+                              cascade='all, delete-orphan', lazy='joined')
 
 
 class Teller(db.Model):
@@ -86,12 +89,12 @@ class Teller(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     depositor_name = db.Column(db.String(120))
     depositor_phone = db.Column(db.Integer)
-    amount = db.Column(db.Integer)
+    amount = db.Column(db.Integer, nullable=False)
     purpose = db.Column(db.String(20))
-    unique_digits = db.Column(db.Integer)
+    unique_digits = db.Column(db.Integer, nullable=False)
     date = db.Column(db.DateTime, default=datetime.utcnow)
     agreement = db.Column(db.Boolean, default=False)
 
-    # school_id = db.Column(db.Integer, db.ForeignKey(
-    #     'school.id'), nullable='False')
-    # pupil_id = db.Column(db.Integer, db.ForeignKey('pupil.id'))
+    school_id = db.Column(db.Integer, db.ForeignKey(
+        'school.id'), nullable='False')
+    pupil_id = db.Column(db.Integer, db.ForeignKey('pupil.id'), nullable=False)
