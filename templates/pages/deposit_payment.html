@@ -1,0 +1,85 @@
+{% extends 'layouts/base.html' %} {% block title %}Deposit{% endblock %} {%
+block intro %}{% endblock %} {% block content %}
+<div class="container-fluid mx-auto my-3 align" id="deposit">
+  <div class="deposit">
+    <form
+      action="{{ url_for('new_deposit') }}"
+      class="form"
+      id="form"
+      method="post"
+    >
+      <div class="form-group">
+        <label for="name" class="form-label">Depositor's Name:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          value=""
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="depositor_phone" class="form-label">Phone Number:</label>
+        <input
+          type="number"
+          class="form-control"
+          id="depositor_phone"
+          name="depositor_phone"
+          value=""
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="amount" class="form-label">Amount:</label>
+        <input
+          type="number"
+          class="form-control"
+          id="amount"
+          name="amount"
+          value=""
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="description" class="form-label">Description:</label>
+        <select name="description" id="description" class="form-control">
+          <option value="guru">guru</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="school_id" class="form-label">Choose School:</label>
+        <select name="school_id" id="school_id" class="form-control" required>
+          <option value="{{ schools.id }}">{{ schools.name }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="pupil_id" class="form-label"
+          >Paying for:
+          <span class="form-text text-muted">
+            (Select Pupil's Name)
+          </span></label
+        >
+        <select name="pupil_id" id="pupil_id" class="form-control" required>
+          {% for pupil in pupils %}
+          <option value="{{ pupil.id }}">{{ pupil.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-check">
+        <input
+          type="checkbox"
+          name="agreement"
+          id="agreement"
+          class="form-check-input"
+          required
+        />
+        <label for="agreement" class="form-label"
+          >I agree that all the fields are accurately filled.</label
+        >
+      </div>
+      <button type="submit" class="btn btn-dark">Submit</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -138,8 +138,11 @@
               <div class="card-text text-muted">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 <div class="d-flex justify-content-center">
-                  <a href="" class="btn btn-primary btn-sm my-2 mx-3">School</a>
-                  <a href="" class="btn btn-primary btn-sm my-2 mx-3">Child</a>
+                  <a
+                    href="{{ url_for('register') }}"
+                    class="btn reg--btn btn-primary my-2 mx-3"
+                    >Register</a
+                  >
                 </div>
               </div>
             </div>
@@ -154,7 +157,11 @@
               <div class="card-text text-muted">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 <div class="d-flex justify-content-center">
-                  <a href="" class="btn btn-success my-2 mx-3">Make Deposit</a>
+                  <a
+                    href="{{ url_for('select_school') }}"
+                    class="btn btn-success my-2 mx-3"
+                    >Make Deposit</a
+                  >
                 </div>
               </div>
             </div>

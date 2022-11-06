@@ -39,10 +39,30 @@ section {
 }
 
 /* Register page */
-#register {
-  min-height: 70vh;
+#register,
+#deposit,
+#select-school {
+  min-height: 100vh;
 }
 
-label {
+label,
+input,
+option {
   font-size: 0.8rem;
+}
+
+.deposit,
+#select-school {
+  max-width: 20rem;
+  margin: 0 auto;
+  padding: 0.5rem;
+}
+
+#select-school {
+  margin-top: 10rem;
+  text-align: center;
+}
+
+#select-school button {
+  margin-top: 0.4rem;
 }
