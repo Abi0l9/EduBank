@@ -53,6 +53,13 @@
         </div>
       </nav>
     </section>
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <ul class="flashes">
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
     <!-- Nav and Header ends here -->
     {% endblock %} {% block intro %}
     <!-- Page content -->

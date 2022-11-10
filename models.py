@@ -96,9 +96,11 @@ class Teller(db.Model):
     depositor_phone = db.Column(db.String(120))
     amount = db.Column(db.Integer)
     description = db.Column(db.String(20))
-    unique_digits = db.Column(db.Integer)
+    ref_number = db.Column(db.LargeBinary)
     date = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
     agreement = db.Column(db.Boolean, default=False, nullable=False)
+    trans_key = db.Column(db.LargeBinary, unique=True)
+    trans_id = db.Column(db.LargeBinary, unique=True)
 
     school_id = db.Column(db.Integer, db.ForeignKey(
         'school.id'), nullable=False)

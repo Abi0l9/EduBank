@@ -44,7 +44,9 @@ block intro %}{% endblock %} {% block content %}
       <div class="form-group">
         <label for="description" class="form-label">Description:</label>
         <select name="description" id="description" class="form-control">
-          <option value="guru">guru</option>
+          {% for description in descriptions %}
+          <option value="{{ description }}">{{ description }}</option>
+          {% endfor %}
         </select>
       </div>
       <div class="form-group">

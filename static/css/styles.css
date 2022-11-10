@@ -22,6 +22,16 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 
+ul {
+  list-style: none;
+}
+
+.flashes {
+  font-weight: bold;
+  color: green;
+  text-align: center;
+}
+
 .card-width {
   min-width: 20rem;
   min-height: 20px;
@@ -41,7 +51,8 @@ section {
 /* Register page */
 #register,
 #deposit,
-#select-school {
+#select-school,
+#deposited {
   min-height: 100vh;
 }
 
@@ -65,4 +76,9 @@ option {
 
 #select-school button {
   margin-top: 0.4rem;
+}
+
+.code {
+  text-overflow: ellipsis;
+  word-wrap: break-word;
 }

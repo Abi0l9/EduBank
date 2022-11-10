@@ -44,7 +44,7 @@ depositor.
 '''
 
 
-class Teller(Form):
+class TellerForm(Form):
     depositor_name = StringField('depositor_name', validators=[DataRequired()])
     depositor_phone = StringField(
         'depositor_phone', validators=[DataRequired()])

@@ -1,0 +1,10 @@
+{% extends 'layouts/base.html' %} {% block title %} Deposit Success {% endblock
+%} {% block intro %}{% endblock %} {% block content %}
+<div class="container my-5 text-center" id="deposited">
+  <h1 class="display-5 text-secondary">Deposit Successful!</h1>
+  <p class="display-3 fw-bolder code">{{ ref_number }}</p>
+  <small class="text-muted"
+    >please, write down the above code for future reference.</small
+  >
+</div>
+{% endblock %}
