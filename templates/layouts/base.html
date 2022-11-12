@@ -43,10 +43,14 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="{{ url_for('select_school') }}"
+                  >Deposit</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact Us</a>
+                <a class="nav-link" href="{{ url_for('input_ref_number') }}">
+                  Print Receipt</a
+                >
               </li>
             </ul>
           </div>
@@ -183,7 +187,11 @@
               <div class="card-text text-muted">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 <div class="d-flex justify-content-center">
-                  <a href="" class="btn btn-info my-2 mx-3">Print Receipt</a>
+                  <a
+                    href="{{ url_for('input_ref_number') }}"
+                    class="btn btn-info my-2 mx-3"
+                    >Print Receipt</a
+                  >
                 </div>
               </div>
             </div>

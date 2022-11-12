@@ -66,7 +66,7 @@ def new_school():
             request.form['name'] + " has been registered, successfully!")
     except:
         flash(
-            request.form['name'] + " has already been registered.")
+            request.form['name'] + " has already been registered or details already exist!")
     finally:
         rollback()
 
@@ -133,9 +133,65 @@ def new_deposit():
 
 
 
-@app.route('/deposited')
+@app.route('/deposited', methods=['POST'])
 def deposited():
+    flash('Success!')
     return render_template('pages/deposited.html')
+
+@app.route('/print-receipt', methods=['POST'])
+def print_receipt():
+
+    # this will be used to provide the decryption key
+    ref_number = bytes(request.form['ref_num'], encoding='utf-8')
+
+    #then query the database with the ref_number, get the key and encrypted data
+    query = Teller.query.filter_by(ref_number=ref_number).one()
+    key = query.trans_key
+    encrypted_data = query.trans_id
+    
+
+    # get school_id and pupil_id, date
+    school_id = query.school_id
+    pupil_id = query.pupil_id
+    
+
+    # use the id to get school details and pupil details
+    school = School.query.get(school_id)
+    pupil = Pupil.query.get(pupil_id)
+
+    school_details =  {
+        "name" : school.name,
+        "address": school.address,
+        "amount": query.amount,
+        "date": query.date.strftime("%B %d, %Y"),
+        "time": query.date.strftime("%H:%M")
+    }
+
+    pupil_details = {
+        "name" : pupil.name,
+        "level": pupil.level
+    }
+
+    gdate = query.date.strftime("%B %d, %Y")
+
+    print(gdate)
+
+    # decryption
+    cipher = Fernet(key)
+    decrypted_data = cipher.decrypt(encrypted_data).decode('utf-8')
+    decrypted_data = json.loads(decrypted_data) # convert to python obj
+
+    # use as string once again
+    ref_number = request.form['ref_num']
+
+    return render_template('pages/print-receipt.html',data=decrypted_data, ref_number=ref_number, school=school_details, pupil=pupil_details)
+
+@app.route('/input-ref_number')
+def input_ref_number():
+
+
+    return render_template('forms/receipt.html')
+
 
 # Running port:
 if __name__ == '__main__':

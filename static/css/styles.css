@@ -62,7 +62,7 @@ option {
   font-size: 0.8rem;
 }
 
-.deposit,
+.deposit-page,
 #select-school {
   max-width: 20rem;
   margin: 0 auto;
@@ -81,4 +81,59 @@ option {
 .code {
   text-overflow: ellipsis;
   word-wrap: break-word;
+}
+
+/* Receipt styling */
+
+#receipt {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0.8rem;
+  max-width: 40rem;
+  margin: 1rem auto;
+}
+
+.receipt-cont {
+  border: 0.5px solid orangered;
+  background: linear-gradient(-45deg, white);
+  box-shadow: 0 0 20px gainsboro;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
+#receipt-name {
+  color: orangered;
+}
+
+#receipt p {
+  margin-bottom: 0;
+}
+
+p#receipt-title {
+  text-align: right;
+}
+
+.deposit {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.deposit > p {
+  font-weight: 200;
+  width: 60%;
+}
+
+.dep-details {
+  width: 40%;
+}
+
+.dep-details > p:nth-child(1) {
+  font-weight: bold;
+  color: orangered;
+}
+
+.dep-details > p:nth-child(2) {
+  font-size: small;
+  color: gray;
 }

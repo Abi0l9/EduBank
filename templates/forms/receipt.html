@@ -2,18 +2,21 @@
 block intro %}{% endblock %} {% block content %}
 <div class="container-fluid my-5 mx-auto register" id="select-school">
   <form
-    action="{{ url_for('make_deposit') }}"
+    action="{{ url_for('print_receipt') }}"
     method="post"
     class="form form-group"
     id="form"
   >
     <div class="form-group">
-      <label for="schools" class="display-4 my-3">Select School</label>
-      <select name="schools" id="schools" class="form-control">
-        {% for school in schools %}
-        <option value="{{ school.id }}">{{ school.name }}</option>
-        {% endfor %}
-      </select>
+      <label for="ref_num">Input Reference Number:</label>
+      <input
+        type="text"
+        name="ref_num"
+        id="ref_num"
+        class="form-control"
+        value=""
+        required
+      />
     </div>
     <button type="submit" class="btn btn-dark">Submit</button>
   </form>
