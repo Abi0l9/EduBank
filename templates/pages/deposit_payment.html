@@ -64,7 +64,9 @@ block intro %}{% endblock %} {% block content %}
         >
         <select name="pupil_id" id="pupil_id" class="form-control" required>
           {% for pupil in pupils %}
-          <option value="{{ pupil.id }}">{{ pupil.name }}</option>
+          <option value="{{ pupil.id }}">
+            00{{ pupil.id }} - {{ pupil.name }}
+          </option>
           {% endfor %}
         </select>
       </div>

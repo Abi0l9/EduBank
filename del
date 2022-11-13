@@ -1,2 +1,0 @@
-<!-- NavBar -->
-<!-- {% block nav %} {{ render_nav_item() }} {% endblock %} -->

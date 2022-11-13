@@ -9,8 +9,7 @@ def save(data):
     db.session.close()
 
 
-def update(data):
-    db.session.commit()
+def close():
     db.session.close()
 
 
@@ -44,4 +43,6 @@ def get_students_record(id):
             records.append({"id": data[2], "name": data[3]})
             school_id = data[0]
             school_name = data[1]
+        # else:
+        #     return (records, {"id": "", "name": ""})
     return (records, {"id": school_id, "name": school_name})

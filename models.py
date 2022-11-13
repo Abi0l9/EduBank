@@ -1,8 +1,11 @@
+import os
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 database_path = 'postgresql://postgres:admin@localhost:5432/receipt'
+basedir = os.path.abspath(os.path.dirname(__file__))
 
+# database_path = 'sqlite:///' + os.path.join(basedir,'database.db') #sqlite
 
 db = SQLAlchemy()
 
