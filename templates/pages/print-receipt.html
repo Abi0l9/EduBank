@@ -1,86 +1,88 @@
 {% extends 'layouts/base.html' %} {% block title %} Print Receipt {% endblock %}
 {% block intro %} {% endblock %} {% block content %}
-<div class="container col-8 col-sm-10 my-2 py-3 m-auto receipt-cont">
-  <div class="" id="receipt">
-    <div class="row" id="receipt-header">
-      <div class="col-7 row">
-        <div class="col-2">
-          <div id="receipt-logo"></div>
+<div id="cover">
+  <div class="container col-10 col-sm-12 my-5 py-3 m-auto receipt-cont">
+    <div class="" id="receipt">
+      <div class="row" id="receipt-header">
+        <div class="col-7 row">
+          <div class="col-2">
+            <div id="receipt-logo"></div>
+          </div>
+          <div class="col fw-bolder display-6">
+            <div id="receipt-name">EduBank</div>
+          </div>
         </div>
-        <div class="col fw-bolder display-6">
-          <div id="receipt-name">EduBank</div>
+        <div class="col lead">
+          <p id="receipt-title">Payment details</p>
         </div>
       </div>
-      <div class="col lead">
-        <p id="receipt-title">Payment details</p>
+      <hr />
+      <div class="row text-center my-3" id="receipt-header-2">
+        <p class="display-6">Transaction Amount</p>
+        <p id="trans-amount" class="fw-bold text-success">#{{ data.amount }}</p>
+      </div>
+      <hr />
+
+      <div class="deposit" id="">
+        <p class="dep-title lead text-muted">School's Details</p>
+        <div class="dep-details">
+          <p id="school-name">{{ school.name }}</p>
+          <p id="school-address">{{ school.address }}</p>
+        </div>
+      </div>
+      <hr />
+
+      <div class="deposit" id="">
+        <p class="dep-title lead text-muted">Beneficiary's Details</p>
+        <div class="dep-details">
+          <p id="pupil-name">{{ pupil.name }}</p>
+          <p id="pupil-level">Basic {{ pupil.level }}</p>
+          <p id="pupil-id">ID: 00{{ pupil.id }}</p>
+        </div>
+      </div>
+      <hr />
+
+      <div class="deposit" id="">
+        <p class="dep-title lead text-muted">Depositor's Details</p>
+        <div class="dep-details">
+          <p id="depositor-name">{{ data.depositor_name }}</p>
+          <p id="depositor-phone">{{ data.depositor_phone }}</p>
+        </div>
+      </div>
+      <hr />
+
+      <div class="deposit" id="">
+        <p class="dep-title lead text-muted">Deposit Date</p>
+        <div class="dep-details">
+          <p id="date">{{ school.date }}.</p>
+          <p id="time">{{ school.time }}.</p>
+        </div>
+      </div>
+      <hr />
+
+      <div class="deposit" id="">
+        <p class="dep-title lead text-muted">Description</p>
+        <div class="dep-details">
+          <p id="description">{{ data.description }}</p>
+          <p id="more-description"></p>
+        </div>
+      </div>
+      <hr />
+
+      <div class="deposit" id="">
+        <p class="dep-title lead text-muted">Ref. Number</p>
+        <div class="dep-details">
+          <p id="ref_number">{{ ref_number }}</p>
+        </div>
       </div>
     </div>
     <hr />
-    <div class="row text-center my-3" id="receipt-header-2">
-      <p class="display-6">Transaction Amount</p>
-      <p id="trans-amount" class="fw-bold text-success">#{{ data.amount }}</p>
-    </div>
-    <hr />
 
-    <div class="deposit" id="">
-      <p class="dep-title lead text-muted">School's Details</p>
-      <div class="dep-details">
-        <p id="school-name">{{ school.name }}</p>
-        <p id="school-address">{{ school.address }}</p>
-      </div>
+    <div id="download-prompt" class="print text-center">
+      <button class="btn btn-secondary" onclick="window.print()">
+        Print Receipt
+      </button>
     </div>
-    <hr />
-
-    <div class="deposit" id="">
-      <p class="dep-title lead text-muted">Beneficiary's Details</p>
-      <div class="dep-details">
-        <p id="pupil-name">{{ pupil.name }}</p>
-        <p id="pupil-level">Basic {{ pupil.level }}</p>
-        <p id="pupil-id">ID: 00{{ pupil.id }}</p>
-      </div>
-    </div>
-    <hr />
-
-    <div class="deposit" id="">
-      <p class="dep-title lead text-muted">Depositor's Details</p>
-      <div class="dep-details">
-        <p id="depositor-name">{{ data.depositor_name }}</p>
-        <p id="depositor-phone">{{ data.depositor_phone }}</p>
-      </div>
-    </div>
-    <hr />
-
-    <div class="deposit" id="">
-      <p class="dep-title lead text-muted">Deposit Date</p>
-      <div class="dep-details">
-        <p id="date">{{ school.date }}.</p>
-        <p id="time">{{ school.time }}.</p>
-      </div>
-    </div>
-    <hr />
-
-    <div class="deposit" id="">
-      <p class="dep-title lead text-muted">Description</p>
-      <div class="dep-details">
-        <p id="description">{{ data.description }}</p>
-        <p id="more-description"></p>
-      </div>
-    </div>
-    <hr />
-
-    <div class="deposit" id="">
-      <p class="dep-title lead text-muted">Ref. Number</p>
-      <div class="dep-details">
-        <p id="ref_number">{{ ref_number }}</p>
-      </div>
-    </div>
-  </div>
-  <hr />
-
-  <div id="download-prompt" class="print text-center">
-    <button class="btn btn-secondary" onclick="window.print()">
-      Print Receipt
-    </button>
   </div>
 </div>
 {% endblock %}

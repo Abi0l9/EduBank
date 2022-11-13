@@ -62,7 +62,7 @@ def new_school():
 def new_pupil():
 
     pupil = Pupil(name=request.form['name'], parent_name=request.form['parent_name'], level=request.form['level'], state=request.form[
-        'state'], city=request.form['city'], address=request.form['address'], dob=request.form['dob'], school_id=request.form['desired-school'],  agreement=True)
+        'state'], city=request.form['city'], address=request.form['address'], age=int(request.form['age']), school_id=request.form['desired-school'],  agreement=True)
     try:
         save(pupil)
         flash(
@@ -184,13 +184,14 @@ def print_receipt():
         # use the id to get school details and pupil details
         school = School.query.get(school_id)
         pupil = Pupil.query.get(pupil_id)
+        date = datetime.strptime(query.date, '%Y-%m-%d %H:%M:%S.%f')
 
         school_details = {
             "name": school.name,
             "address": school.address,
             "amount": query.amount,
-            "date": query.date.strftime("%B %d, %Y"),
-            "time": query.date.strftime("%H:%M")
+            "date": date.strftime("%B %d, %Y"),
+            "time": date.strftime("%I:%M%p")
         }
 
         pupil_details = {
@@ -209,7 +210,8 @@ def print_receipt():
         ref_number = request.form['ref_num']
 
         return render_template('pages/print-receipt.html', data=decrypted_data, ref_number=ref_number, school=school_details, pupil=pupil_details)
-    except:
+    except Exception as e:
+        print(e)
         flash('Reference code is Invalid!')
         return redirect(url_for('input_ref_number'))
 

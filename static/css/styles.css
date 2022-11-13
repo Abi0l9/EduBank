@@ -102,6 +102,10 @@ option {
   word-break: break-all;
 }
 
+#cover {
+  min-height: 100vh;
+}
+
 #receipt-name {
   color: orangered;
 }

@@ -2,10 +2,10 @@ import os
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
-database_path = 'postgresql://postgres:admin@localhost:5432/receipt'
+# database_path = 'postgresql://postgres:admin@localhost:5432/receipt'
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-# database_path = 'sqlite:///' + os.path.join(basedir,'database.db') #sqlite
+database_path = 'sqlite:///' + os.path.join(basedir, 'database.db')  # sqlite
 
 db = SQLAlchemy()
 
@@ -76,9 +76,8 @@ class Pupil(db.Model):
     state = db.Column(db.String(120))
     address = db.Column(db.String(120))
     city = db.Column(db.String(120))  # add address, parent_name
-    dob = db.Column(db.DateTime)
+    age = db.Column(db.Integer)
     agreement = db.Column(db.Boolean, default=False, nullable=False)
-    reg_date = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
 
     school_id = db.Column(db.Integer, db.ForeignKey(
         'school.id'), nullable=False)
@@ -100,7 +99,7 @@ class Teller(db.Model):
     amount = db.Column(db.Integer)
     description = db.Column(db.String(20))
     ref_number = db.Column(db.LargeBinary)
-    date = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+    date = db.Column(db.String(50), default=datetime.now(), nullable=False)
     agreement = db.Column(db.Boolean, default=False, nullable=False)
     trans_key = db.Column(db.LargeBinary, unique=True)
     trans_id = db.Column(db.LargeBinary, unique=True)
